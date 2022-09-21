@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Customized T-Shirts</title>
+
+<style>
+input:not([type=color],[type=radio]),textarea,select {
+border: 1px solid #a4a4a4;
+padding: 15px ;
+border-radius: 25px;
+width: 100%;
+margin-bottom: 5px;
+background: #f8f8ff;
+
+}
+
+.button {
+background-color: #4CAF50; /* Green */
+border-radius: 25px;
+padding: 15px 32px;
+text-align: center;
+border: none;
+color: white;
+
+margin-left: 50%;
+margin-top: 5%;
+margin-bottom: 5%;
+}
+body {
+background: rgb(238,174,202);
+background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+}
+.container {
+position: relative;
+text-align: center;
+color: white;
+font-size: 50px;
+font-weight: bold;
+}
+.centered {
+position: absolute;
+top: 50%;
+left: 35%;
+divansform: divanslate(-50%, -50%);
+
+}
+h3{
+color: aliceblue;
+text-shadow: 1px 1px black;
+}
+.button:hover {
+color:blue;
+}
+.formm{
+margin-left: 10%;
+margin-right: 10%;
+}
+i{
+margin-left: 80%;
+}
+#date{
+float: left;
+}
+#date{
+float: right;
+}
+</style>
+</head>
+<body>
+<div id="date"> </div>
+<div id="time"> </div>
+<div class="container">
+<img
+src="https://images.pexels.com/photos/4530798/pexels-photo-4530798.jpeg?auto=compress&cs
+=tinysrgb&w=1260&h=750&dpr=1" alt="Snow" style="width:1000px; height: 200px;">
+
+<div class="centered">Customised T-Shirts</div>
+</div>
+<form class="formm" name="myform" method="post" onsubmit="return validateform()"
+required >
+<div><h3 ><center>Customzing Section</center></h3></div>
+
+<!--------------------- Tag Line ------------------------------------------>
+<div class="submidiveset" >
+<b></b>Tagline
+<input type="text" name="tagline" maxlength="100" placeholder="Your shirt's tagline" >
+<i>(Max 100 Characters Allowed)</i>
+</div>
+
+<!--------------------------Size of Shirt----------------------------------->
+<div>
+
+Size of Shirt
+
+<select name="Size" id="Size" >
+<option value="-1">Size:</option>
+<option value="1">XS</option>
+<option value="2">S</option>
+<option value="3">M</option>
+<option value="4">L</option>
+<option value="5">XL</option>
+<option value="6">XXL</option>
+<option value="7">XXXL</option>
+</select>
+
+</div>
+
+<br>
+<div>
+<label for="colorpicker">Colour:</label>
+<input type="color" id="colorpicker" value="#800080">
+</div>
+<br>
+<div>
+Quantity
+<input type="text" name="Quantity" maxlength="50" placeholder="Quantity" >
+<i>(Max 50 Characters Allowed)</i>
+</div>
+
+<div>
+Gender
+
+<input type="radio" name="Gender" value="Male" />
+Male
+<input type="radio" name="Gender" value="Female" />
+Female
+
+</div>
+
+<div> <h3><center>Contact and Delivery Details</center></h3></div>
+<div>
+First Name
+<input type="text" name="FirstName" maxlength="50" placeholder="John">
+<i>(Max 50 Characters Allowed)</i>
+</div>
+
+<!------------------------ Last Name --------------------------------------->
+
+<div>
+Last Name
+<input type="text" name="LastName" maxlength="50" placeholder="Fernandes">
+<i>(Max 50 Characters Allowed)</i>
+</div>
+
+<!-------------------------- Email ID ------------------------------------->
+<div>
+Email ID
+<input type="text" name="EmailID" maxlength="100" placeholder="abc@gmail.com" >
+</div>
+
+<!-------------------------- Mobile Number ------------------------------------->
+<div>
+Mobile Number
+
+<input type="text" name="MobileNumber" maxlength="10" placeholder="1234xxxxxx"
+>
+<i>(Max 10 digits allowed)</i>
+</div>
+
+<!------------------------- Address ---------------------------------->
+<div>
+Address<br /><br /><br />
+<textarea name="Address" rows="10" cols="50"></textarea>
+</div>
+
+<!-------------------------- City ------------------------------------->
+<div>
+City
+
+<input type="text" name="City" maxlength="50" placeholder="Bangalore"/>
+<i>(Max 50 Characters Allowed)</i>
+</div>
+
+<!----- -------------------- Pin Code-------------------------------------->
+<div>
+Pin Code
+<input type="text" name="PinCode" maxlength="6" placeholder="560068"/>
+<i>(Max 6 Characters Allowed)</i>
+</div>
+
+<!---------------------------- State ----------------------------------->
+<div>
+State
+
+<select name="Stste" id="State">
+<option value="-1">State</option>
+<option value="1">Maharashdiva</option>
+<option value="2">Uttar Pradesh</option>
+<option value="3">Gujrat</option>
+<option value="3">Goa</option>
+<option value="3">Punjab</option>
+</select>
+
+</div>
+
+<div>
+Delivery needed by
+<input type="date" id="Date" name="Date">
+</div>
+
+<br>
+<div id="radio1">
+Mode of Payment
+<input type="radio" name="Mode" value="COD" />
+COD
+<input type="radio" name="Mode" value="Online" />
+Online
+
+</div>
+<br>
+<div id="radio2">
+This order contains a gift
+<input type="radio" name="Mode" value="COD" />
+Yes
+<input type="radio" name="Mode" value="Online" />
+No
+
+</div>
+
+<input type="submit" value="Submit">
+
+</form>
+
+</body>
+<script>
+let date = document.getElementById("date");
+let time = document.getElementById("time");
+// creating the date object and getting the date and time
+let newDate = new Date();
+let year = newDate.getFullYear();
+let month = newDate.getMonth();
+let todaySDate = newDate.getDate();
+let hours = newDate.getHours();
+let minutes = newDate.getMinutes();
+let seconds = newDate.getSeconds();
+date.innerHTML = " " + todaySDate + "/ " + month + "/ " + year;
+time.innerHTML = hours + ": " + minutes + ": " + seconds;
+
+function validateform() {
+var tagline=document.myform.tagline.value;
+var Quantity=document.myform.Quantity.value;
+var fname=document.myform.FirstName.value;
+var lname=document.myform.LastName.value;
+var mob=document.myform.MobileNumber.value;
+var mail=document.myform.EmailID.value;
+var add=document.myform.Address.value;
+var city=document.myform.City.value;
+var pincode=document.myform.PinCode.value;
+var size=document.myform.Size.selectedIndex;
+var state=document.myform.State.selectedIndex;
+var phoneno = /^\d{10}$/;
+var maill =/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+var phone = document.forms["myform"]["MobileNumber"].value;
+if (tagline==""){
+alert("Tagline of the t-shirt can't be blank");
+return false;
+
+}
+else if (Quantity==""){
+alert("Quantity of the t-shirt can't be blank");
+return false;
+}
+else if (fname==""){
+alert("first name field can't be blank");
+return false;
+}
+else if (lname==""){
+alert("last name field can't be blank");
+return false;
+}
+else if (!phone.match(phoneno)){
+ 
+        alert("enter valid mobile number");
+return false;
+
+}
+else if (!mail.match(maill)){
+ 
+ alert("enter valid email");
+return false;
+
+}
+else if (add==""){
+alert("Address field can't be blank");
+return false;
+}
+else if (city==""){
+alert("City field can't be blank");
+return false;
+}
+else if (pincode==""){
+
+alert("Pincode field can't be blank");
+return false;
+}
+else if (size==""){
+alert("Please select a size");
+return false;
+}
+else if (state==""){
+alert("Please select a size");
+return false;
+}
+else window.print();
+
+}
+
+</script>
+</html>
